@@ -38,7 +38,7 @@ public class PuertoController {
 
     @PostMapping
     public ResponseEntity<Puerto> createPuerto(@RequestBody Puerto puerto) {
-        Puerto nuevoPuerto = puertoService.saveBuque(puerto);
+        Puerto nuevoPuerto = puertoService.savePuerto(puerto);
         return ResponseEntity.status(HttpStatus.CREATED).body(nuevoPuerto);
     }
 
