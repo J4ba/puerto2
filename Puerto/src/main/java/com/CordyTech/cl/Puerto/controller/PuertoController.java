@@ -37,9 +37,11 @@ public class PuertoController {
     }
 
     @PostMapping
-    public Puerto guardar(@RequestBody Puerto puerto) {
-        return puertoService.guardarPuerto(puerto);
+    public ResponseEntity<Puerto> createPuerto(@RequestBody Puerto puerto) {
+        Puerto nuevoPuerto = puertoService.saveBuque(puerto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(nuevoPuerto);
     }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable int id) {
